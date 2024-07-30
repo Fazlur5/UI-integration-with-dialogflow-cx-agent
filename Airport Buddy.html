@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changi Airport Chatbot</title>
+    <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+    <style>
+        body {
+            font-family: 'Google Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f3f6fc;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        header {
+            width: 100%;
+            background: #007bff;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        footer {
+            width: 100%;
+            background: #007bff;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        df-messenger {
+            z-index: 999;
+            position: fixed;
+            --df-messenger-font-color: #000;
+            --df-messenger-font-family: 'Google Sans', sans-serif;
+            --df-messenger-chat-background: #f3f6fc;
+            --df-messenger-message-user-background: #d3e3fd;
+            --df-messenger-message-bot-background: #fff;
+            bottom: 16px;
+            right: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Airport Chatbot
+    </header>
+    <main>
+        <h1>Welcome to Airport Information</h1>
+        <p>Have any questions about the airport? Chat with our friendly bot!</p>
+    </main>
+    <footer>
+        &copy; 2024 Airport
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove existing df-messenger if it exists
+            const existingMessenger = document.querySelector('df-messenger');
+            if (existingMessenger) {
+                existingMessenger.remove();
+            }
+
+            // Create and load the new script
+            const script = document.createElement('script');
+            script.src = 'https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js';
+            script.onload = function() {
+                // Create and append the df-messenger element
+                const dfMessenger = document.createElement('df-messenger');
+                dfMessenger.setAttribute('id', 'df-messenger');
+                dfMessenger.setAttribute('chat-title', 'Aiport Buddy');
+                dfMessenger.setAttribute('agent-id', '2b995714-5750-4268-963f-c882637c3cdf');
+                dfMessenger.setAttribute('language-code', 'en');
+                // Append a unique query parameter to force a new session
+                dfMessenger.setAttribute('session-id', new Date().getTime().toString());
+                document.body.appendChild(dfMessenger);
+
+                // Wait a bit to ensure the messenger is fully loaded
+                setTimeout(function() {
+                    dfMessenger.renderCustomText('Welcome to Airport Chatbot! I can help you find shops, their locations, and what they offer.', true);
+                }, 2000);
+            };
+            document.head.appendChild(script);
+        });
+    </script>
+</body>
+</html>
+
+
+
