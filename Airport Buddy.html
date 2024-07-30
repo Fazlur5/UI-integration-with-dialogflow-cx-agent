@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Changi Airport Chatbot</title>
+    <title>Airport Chatbot</title>
     <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
     <style>
         body {
@@ -81,7 +81,7 @@
                 const dfMessenger = document.createElement('df-messenger');
                 dfMessenger.setAttribute('id', 'df-messenger');
                 dfMessenger.setAttribute('chat-title', 'Aiport Buddy');
-                dfMessenger.setAttribute('agent-id', '2b995714-5750-4268-963f-c882637c3cdf');
+                dfMessenger.setAttribute('agent-id', 'your-agent-id');
                 dfMessenger.setAttribute('language-code', 'en');
                 // Append a unique query parameter to force a new session
                 dfMessenger.setAttribute('session-id', new Date().getTime().toString());
